@@ -15,7 +15,6 @@ jobs:
           env-files: environment.yml
           local-code-directory: ''
           use-cache: 'true'
-          pip-install-versioneer: 'false'
           miniforge-activate-environment: scipy2024
       - name: Add papermill and jupyter
         shell: bash -l {0}
