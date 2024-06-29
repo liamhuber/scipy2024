@@ -1,0 +1,30 @@
+name: Run examples
+
+on:
+  workflow_call:
+
+jobs:
+  run_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup environment
+        uses: pyiron/actions/cached-miniforge@actions-3.2.0
+        with:
+          python-version: '3.11'
+          env-files: environment.yml
+          local-code-directory: ''
+          use-cache: 'true'
+          pip-install-versioneer: 'false'
+          miniforge-activate-environment: scipy2024
+      - name: Add papermill and jupyter
+        shell: bash -l {0}
+        run: mamba install -n scipy2024 jupyter papermill
+      - name: Execute workflow
+        shell: bash -l {0}
+        run: papermill example.ipynb example-out.ipynb
+      - name: Upload updated notebook as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-out.ipynb
+          path: ./example-out.ipynb
