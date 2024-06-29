@@ -1,0 +1,7 @@
+*.pptx
+*.pyc
+.DS_Store
+.idea/
+.ipynb_checkpoints/
+figures/
+pyiron.log
