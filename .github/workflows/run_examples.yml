@@ -21,9 +21,9 @@ jobs:
         run: mamba install -n poster-env jupyter papermill
       - name: Execute workflow
         shell: bash -l {0}
-        run: papermill example.ipynb example-out.ipynb
+        run: papermill examples.ipynb examples-out.ipynb
       - name: Upload updated notebook as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: example-out.ipynb
-          path: ./example-out.ipynb
+          name: examples-out.ipynb
+          path: ./examples-out.ipynb
