@@ -12,7 +12,7 @@ jobs:
         uses: pyiron/actions/cached-miniforge@actions-3.2.0
         with:
           python-version: '3.11'
-          env-files: environment.yml
+          env-files: .ci_support/environment.yml
           local-code-directory: ''
           use-cache: 'true'
           miniforge-activate-environment: scipy2024
