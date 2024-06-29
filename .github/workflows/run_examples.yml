@@ -15,10 +15,10 @@ jobs:
           env-files: .ci_support/environment.yml
           local-code-directory: ''
           use-cache: 'true'
-          miniforge-activate-environment: scipy2024
+          miniforge-activate-environment: poster-env
       - name: Add papermill and jupyter
         shell: bash -l {0}
-        run: mamba install -n scipy2024 jupyter papermill
+        run: mamba install -n poster-env jupyter papermill
       - name: Execute workflow
         shell: bash -l {0}
         run: papermill example.ipynb example-out.ipynb
