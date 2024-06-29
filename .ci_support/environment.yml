@@ -7,4 +7,4 @@ dependencies:
   - lammps =2024.02.07
   - pandas =2.2.2
   - pyiron_workflow =0.9.1
-  - qe =0.7.0
+  - qe =7.0
